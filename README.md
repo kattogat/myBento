@@ -2,9 +2,9 @@
 Skolprojekt/uppgift
 
 ## Ubildning
-Skola: Medieinstitutet
-Program: WIEG16 - Webbutveckling inom E-handel (Göteborg)
-Kurs: Back End-utveckling i PHP, 50yh
+Skola: Medieinstitutet<br>
+Program: WIEG16 - Webbutveckling inom E-handel (Göteborg)<br>
+Kurs: Back End-utveckling i PHP, 50yh<br>
 
 ### Uppgift
 
