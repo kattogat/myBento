@@ -1,6 +1,6 @@
 <?php	
     $host = 'localhost'; 
-    $db = 'infup'; 
+    $db = 'mybento'; 
     $user = 'root'; 
     $password = 'root';
     $charset = 'utf8';
