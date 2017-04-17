@@ -24,7 +24,7 @@ Maria Berntsson (<a href="https://github.com/kattogat/">kattogat</a>)
 
 ## Beskrivning
 
-MyBento är en applikation där användaren kan ha ett virituellt kylskåp/frys/skafferi där denne kan fylla på med råvaror/mat, städa bort råvaror/mat och uppdatera kyl/frys/skafferiets innehåll. Det ska även vara möjligt för användaren att "tillagga" virituella maträtter (matlådor) utifrån de råvaror som finns i kyl/frys/skafferiet.
+MyBento är en applikation där användaren kan ha ett virituellt skafferi där denne kan fylla på med råvaror/mat, städa bort råvaror/mat och uppdatera skafferiets innehåll. Det ska även vara möjligt för användaren att "tillagga" virituella maträtter (matlådor) utifrån de råvaror som finns i skafferiet.
 
 ## Använda teknologier
 
