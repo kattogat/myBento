@@ -1,4 +1,5 @@
 <?php
+
 use App\Controllers\Controller;
 
 // Sökväg till grundmappen i projektet

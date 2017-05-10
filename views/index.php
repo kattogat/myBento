@@ -12,7 +12,7 @@
 	<title>Mitt MVC-projekt</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../public/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
