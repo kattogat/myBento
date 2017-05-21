@@ -1,7 +1,6 @@
 <?php
-require "../config.php";
-require "modeler.php";
-require "../controler.php";
+
+require "model.php";
 
 class PantryModel extends Model {
 	private $table = "pantry";
@@ -19,34 +18,31 @@ class PantryModel extends Model {
 	}
 	
 	public function addProduct() {
-		require "../config.php";
+		
+		require "config.php";
 		
 		$sql = "INSERT INTO $this->table (name, quantity, liter, kg)
             VALUES(:nameuo, :quntuo, :literuo, :kguo)";
 		$pantry_intoDb = $pdo->prepare($sql);
 		$pantry_intoDb->execute (array(':nameuo' => $this->name, ':quntuo' => $this->qun, ':literuo' => $this->liter, ':kguo' => $this->kg)); 
 		
-		$done = true;
-		return $done;
 	}
 	
 	public function updateProduct() {
-		$sql2 = "UPDATE $this->table SET lossenord = :olduo WHERE anvandarnamn = :newuo";
+		require "../config.php";
+		$sql2 = "UPDATE $this->table SET (name = :nameolduo) AND (quantity = :qunolduo) AND (liter = :literolduo) AND (kg = :kgolduo) WHERE name = :newuo";
 		$uppdate = $pdo->prepare($sql2);
-		$uppdate->execute (array(':olduo' => $old, ':newuo' => $new)); 
+		$uppdate->execute (array(':olduo' => $this->name, ':qunolduo' => $this->qun, ':literolduo' => $this->liter, ':kgolduo' => $this->kg, ':newuo' => $this->name)); 
 		
 	}
 	
 	public function deleteProduct() {
 		require "../config.php";
 		$sql = "DELETE FROM $this->table WHERE (name=:deluo)";
-		$bort = $pdo->prepare($sql);
-		$bort->execute (array(':deluo' => $this->name));
+		$delete = $pdo->prepare($sql);
+		$delete->execute (array(':deluo' => $this->name));
 		
-		$done = true;
-		return $done;
 	}
+	
+	
 }
-
-$test = new PantryModel($conName, $conQun, $conLiter, $conKg);
-$test->addProduct(); 

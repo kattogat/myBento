@@ -6,10 +6,9 @@ class Model {
 	private $db;
 	private $table;
 	
-	public function __construct($id, $db, $table) {
+	public function __construct($id = "", $table) {
 		$this->id = $id;
-		$this->db = $db;
-		$this->tabel = $table;
+		$this->table = $table;
 	}
 	
 	public function getId() {
@@ -18,16 +17,31 @@ class Model {
 	}
 
 	public function getById() {
-		require "../config.php";
 		$sql = "SELECT * FROM $this->table WHERE id = $this->id";
 		$statement = $pdo->query($sql);
 		return $statement;
 	}
 	
 	public function getEverything() {
-		$sql = "SELECT * FROM" . $this->table;
+		
+		require "config.php";
+		
+		$sql = "SELECT * FROM $this->table";
 		$statement = $pdo->query($sql);
-		return $statement;
+		
+		foreach( $statement as $row ) {
+			/*if ($row['kg'] != NULL) {
+				$kg = $row['kg']
+			} else {
+				$kg = "";
+			}
+			if ($row['liter'] != NULL) {
+				$liter = $row['liter']
+			} else {
+				$liter = "";
+			} */
+			echo "<p>Det finns " . $row['quantity'] . " " . $row['name'] . ".</p>";
+		}
 	}
 	
 }

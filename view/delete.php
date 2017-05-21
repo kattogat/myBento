@@ -13,19 +13,22 @@
 	<main>
 		<section>
 			<article>
-				<h2>MyBento</h2>
-				<p>Välkommen till MyBento! Här kan du visullera ett skafferi.</p>
+				<a href="index.php">Se produkter</a><br>
 				<a href="create.php">Lägg till produkter</a><br>
-				<a href="update.php">Updatera produkter</a><br>
 				<a href="delete.php">Ta bort produkter</a><br>
 			</article>
 		</section>
+	
 		<section>
 		
-			<h2>Ditt skafferi</h2>
+			<h2>Ta bort en produkt ur skafferi.</h2>
 			
-			<?php require "../app/model/Model.php"; $pantry = new Model("", "pantry"); $pantry->getEverything();  ?>
-			
+			<form method="get" action="../index.php">
+				<label>Namn</label>
+				<input type="text" name="productName">
+				<br>
+				<input type="submit" value="Lägg till" name="pantryDelete">
+			</form>
 		</section>
 	
 	</main>
