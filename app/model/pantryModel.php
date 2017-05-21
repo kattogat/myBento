@@ -31,7 +31,7 @@ class PantryModel extends Model {
 	}
 	
 	public function updateProduct() {
-		$sql2 = "UPDATE pantry SET lossenord = :olduo WHERE anvandarnamn = :newuo";
+		$sql2 = "UPDATE $this->table SET lossenord = :olduo WHERE anvandarnamn = :newuo";
 		$uppdate = $pdo->prepare($sql2);
 		$uppdate->execute (array(':olduo' => $old, ':newuo' => $new)); 
 		
