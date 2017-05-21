@@ -24,7 +24,7 @@ class PantryModel extends Model {
 		$sql = "INSERT INTO $this->table (name, quantity, liter, kg)
             VALUES(:nameuo, :quntuo, :literuo, :kguo)";
 		$pantry_intoDb = $pdo->prepare($sql);
-		$pantry_intoDb- >execute (array(':nameuo' => $this->name, ':quntuo' => $this->qun, ':literuo' => $this->liter, ':kguo' => $this->kg)); 
+		$pantry_intoDb->execute (array(':nameuo' => $this->name, ':quntuo' => $this->qun, ':literuo' => $this->liter, ':kguo' => $this->kg)); 
 		
 		$done = true;
 		return $done;
