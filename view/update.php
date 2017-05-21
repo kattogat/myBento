@@ -36,7 +36,7 @@
 				<label>Kg</label>
 				<input type="text" name="productKg">
 				<br>
-				<input type="submit" value="Lägg till" name="pantryUpdate">
+				<input type="submit" value="Uppdatera" name="pantryUpdate">
 			</form>
 		</section>
 	

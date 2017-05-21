@@ -10,7 +10,7 @@ class PantryModel extends Model {
 	private $kg;
 	
 	
-	public function __construct($name, $qun, $liter = "", $kg = "") {
+	public function __construct($name, $qun = "", $liter = "", $kg = "") {
 		$this->name = $name;
 		$this->qun = $qun;
 		$this->liter = $liter;
@@ -29,15 +29,19 @@ class PantryModel extends Model {
 	}
 	
 	public function updateProduct() {
-		require "../config.php";
-		$sql2 = "UPDATE $this->table SET (name = :nameolduo) AND (quantity = :qunolduo) AND (liter = :literolduo) AND (kg = :kgolduo) WHERE name = :newuo";
+		
+		require "config.php";
+		
+		$sql2 = "UPDATE $this->table SET name = :nameolduo, quantity = :qunolduo, liter = :literolduo, kg = :kgolduo WHERE name = :newuo";
 		$uppdate = $pdo->prepare($sql2);
-		$uppdate->execute (array(':olduo' => $this->name, ':qunolduo' => $this->qun, ':literolduo' => $this->liter, ':kgolduo' => $this->kg, ':newuo' => $this->name)); 
+		$uppdate->execute (array(':nameolduo' => $this->name, ':qunolduo' => $this->qun, ':literolduo' => $this->liter, ':kgolduo' => $this->kg, ':newuo' => $this->name)); 
 		
 	}
 	
 	public function deleteProduct() {
-		require "../config.php";
+		
+		require "config.php";
+		
 		$sql = "DELETE FROM $this->table WHERE (name=:deluo)";
 		$delete = $pdo->prepare($sql);
 		$delete->execute (array(':deluo' => $this->name));

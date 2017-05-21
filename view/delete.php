@@ -27,7 +27,7 @@
 				<label>Namn</label>
 				<input type="text" name="productName">
 				<br>
-				<input type="submit" value="Lägg till" name="pantryDelete">
+				<input type="submit" value="Ta bort" name="pantryDelete">
 			</form>
 		</section>
 	
