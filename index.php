@@ -1,7 +1,6 @@
 <?php
 
 require "app/model/pantryModel.php";
-//require "app/model/model.php";
 
 $action = isset( $_GET['action'] ) ? $_GET['action'] : 'show';
 switch ($action) {

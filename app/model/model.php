@@ -24,7 +24,7 @@ class Model {
 	
 	public function getEverything() {
 		
-		require "config.php";
+		require "../app/config.php";
 		
 		$sql = "SELECT * FROM $this->table";
 		$statement = $pdo->query($sql);

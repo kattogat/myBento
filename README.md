@@ -3,8 +3,7 @@ Skolprojekt/uppgift
 
 ## Ubildning
 Skola: Medieinstitutet<br>
-Program: WIEG16 - Webbutveckling inom E-handel (Göteborg)<br>
-Kurs: Back End-utveckling i PHP, 50yh<br>
+Program: WIEG16 - Webbutveckling inom E-handel<br>
 
 ## Uppgift
 
@@ -24,15 +23,11 @@ Maria Berntsson (<a href="https://github.com/kattogat/">kattogat</a>)
 
 ## Beskrivning
 
-MyBento är en applikation där användaren kan ha ett virituellt skafferi där denne kan fylla på med råvaror/mat, städa bort råvaror/mat och uppdatera skafferiets innehåll. Det ska även vara möjligt för användaren att "tillagga" virituella maträtter (matlådor) utifrån de råvaror som finns i skafferiet.
+MyBento är en applikation där användaren kan ha ett virituellt skafferi där denne kan fylla på med råvaror/mat, städa bort råvaror/mat och uppdatera skafferiets innehåll.
 
 ## Använda teknologier
 
 * PHP
 * MySQL
-* MAMP
 * HTML
 * CSS
-* JavaScript
-* Ajax
-* Json

@@ -3,7 +3,7 @@ require "config.php";
 //require "model/model.php";
 require "model/pantryModel.php";
 require "../index.php";
-/*
+
 $controller = new Controller();
 $action = isset( $_GET['action'] ) ? $_GET['action'] : 'show';
 if (method_exists($controller, $action)) {
