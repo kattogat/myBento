@@ -24,7 +24,7 @@
 			<h2>Updatera en produkt i skafferi.</h2>
 			
 			<form method="get" action="../index.php">
-				<label>Namn</label>
+				<label>Namn (namnet på det som ska updateras, obsevera varsaler)</label>
 				<input type="text" name="productName">
 				<br>
 				<label>Antal</label>
