@@ -8,8 +8,7 @@ class PantryModel extends Model {
 	private $qun;
 	private $liter;
 	private $kg;
-	
-	
+
 	public function __construct($name, $qun = "", $liter = "", $kg = "") {
 		$this->name = $name;
 		$this->qun = $qun;
@@ -17,9 +16,9 @@ class PantryModel extends Model {
 		$this->kg = $kg;
 	}
 	
-	public function addProduct() {
-		
-		require "../app/config.php";
+	public function addProduct() {	
+
+		require "C:\MAMP\htdocs\myBento\app\config.php";
 		
 		$sql = "INSERT INTO $this->table (name, quantity, liter, kg)
             VALUES(:nameuo, :quntuo, :literuo, :kguo)";
@@ -30,7 +29,7 @@ class PantryModel extends Model {
 	
 	public function updateProduct() {
 		
-		require "../app/config.php";
+		require "C:\MAMP\htdocs\myBento\app\config.php";
 		
 		$sql2 = "UPDATE $this->table SET name = :nameolduo, quantity = :qunolduo, liter = :literolduo, kg = :kgolduo WHERE name = :newuo";
 		$uppdate = $pdo->prepare($sql2);
@@ -40,7 +39,7 @@ class PantryModel extends Model {
 	
 	public function deleteProduct() {
 		
-		require "../app/config.php";
+		require "C:\MAMP\htdocs\myBento\app\config.php";
 		
 		$sql = "DELETE FROM $this->table WHERE (name=:deluo)";
 		$delete = $pdo->prepare($sql);
