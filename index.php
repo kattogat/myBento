@@ -21,14 +21,17 @@ switch ($action) {
 if (isset($_GET['pantryAdd'])) {
 	$pantry = new PantryModel($_GET['productName'], $_GET['productQun'], $_GET['productLiter'], $_GET['productKg']);
 	$pantry->addProduct(); 
+	header("Location: view/index.php");
 }
 
 if (isset($_GET['pantryUpdate'])) {
 	$pantry = new PantryModel($_GET['productName'], $_GET['productQun'], $_GET['productLiter'], $_GET['productKg']);
 	$pantry->updateProduct(); 
+	header("Location: view/index.php");
 }
 
 if (isset($_GET['pantryDelete'])) {
 	$pantryDel = new PantryModel($_GET['productName']);
 	$pantryDel->deleteProduct(); 
+	header("Location: view/index.php");
 } 
