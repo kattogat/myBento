@@ -17,7 +17,7 @@
 			<article>
 				<a href="index.php">Se produkter</a><br>
 				<a href="create.php">Lägg till produkter</a><br>
-				<a href="delete.php">Ta bort produkter</a><br>
+				<a href="update.php">Uppdatera en produkt</a><br>
 			</article>
 		</section>
 	

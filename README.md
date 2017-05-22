@@ -19,7 +19,7 @@ Maria Berntsson (<a href="https://github.com/kattogat/">kattogat</a>)
 
 ## Kontakt
 
-<a href="http://mariaberntsson.se/">mariaberntsson.se</a> - hello@mariaberntsson.se
+hello@mariaberntsson.se
 
 ## Beskrivning
 
