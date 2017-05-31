@@ -3,12 +3,14 @@
 class Model {
 	
 	protected $id;
+	protected $pdo;
 	private $db;
 	private $table;
 	
-	public function __construct($id = "", $table) {
+	public function __construct($id = "", $table, $pdo) {
 		$this->id = $id;
 		$this->table = $table;
+		$this->pdo = $pdo;
 	}
 	
 	public function getId() {
@@ -24,10 +26,10 @@ class Model {
 	
 	public function getEverything() {
 		
-		require "../app/config.php";
+		//require "../app/config.php";
 		
 		$sql = "SELECT * FROM $this->table";
-		$statement = $pdo->query($sql);
+		$statement = $this->pdo->query($sql);
 		
 		foreach( $statement as $row ) {
 			/*if ($row['kg'] != NULL) {

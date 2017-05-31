@@ -26,7 +26,7 @@
 		
 			<h2>Ditt skafferi</h2>
 			
-			<?php require "../app/model/Model.php"; $pantry = new Model("", "pantry"); $pantry->getEverything();  ?>
+			<?php require "../app/model/Model.php"; require "../app/config.php"; $pantry = new Model("", "pantry", $pdo); $pantry->getEverything();  ?>
 			
 		</section>
 	
