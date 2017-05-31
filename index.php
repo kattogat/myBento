@@ -16,9 +16,14 @@ switch ($action) {
 		require 'view/delete.php';
 		break;
 	/*default:
-		require 'view/index.php';
+		require 'view/start.php';
 		break; */
 }
+
+$pdo = new PDO($dsn, $user, $password, $options);
+
+$for_index = new PantryModel("", $pdo); 
+$theThings = $for_index->getEverything();
 
 if (isset($_GET['pantryAdd'])) {
 	$pantry = new PantryModel($_GET['productName'], $pdo, $_GET['productQun'], $_GET['productLiter'], $_GET['productKg']);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Apr 12, 2017 at 08:42 PM
+-- Generation Time: May 31, 2017 at 08:37 PM
 -- Server version: 5.5.49-log
 -- PHP Version: 7.0.9
 
@@ -32,49 +32,17 @@ CREATE TABLE IF NOT EXISTS `pantry` (
   `quantity` int(11) DEFAULT NULL,
   `liter` float DEFAULT NULL,
   `kg` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
--- Table structure for table `recept`
+-- Dumping data for table `pantry`
 --
 
-CREATE TABLE IF NOT EXISTS `recept` (
-  `id` int(11) NOT NULL,
-  `name` varchar(450) COLLATE utf8_swedish_ci NOT NULL,
-  `description` text COLLATE utf8_swedish_ci NOT NULL,
-  `instructions` text COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `recept_ingredients`
---
-
-CREATE TABLE IF NOT EXISTS `recept_ingredients` (
-  `id` int(11) NOT NULL,
-  `recept_id` int(11) NOT NULL,
-  `name` varchar(450) COLLATE utf8_swedish_ci NOT NULL,
-  `amount` float NOT NULL,
-  `liter` tinyint(1) NOT NULL,
-  `kg` tinyint(1) NOT NULL,
-  `pieces` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `recept_opinion`
---
-
-CREATE TABLE IF NOT EXISTS `recept_opinion` (
-  `id` int(11) NOT NULL,
-  `recept_id` int(11) NOT NULL,
-  `opinion` int(11) NOT NULL,
-  `comnt` varchar(500) COLLATE utf8_swedish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+INSERT INTO `pantry` (`id`, `name`, `quantity`, `liter`, `kg`) VALUES
+(1, 'Tomat', 4, NULL, NULL),
+(2, 'Äpple', 1, 0, 0),
+(3, 'Pannkaka', 5, 0, 0),
+(5, 'Päron', 35, 0, 5);
 
 --
 -- Indexes for dumped tables
@@ -87,24 +55,6 @@ ALTER TABLE `pantry`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `recept`
---
-ALTER TABLE `recept`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `recept_ingredients`
---
-ALTER TABLE `recept_ingredients`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `recept_opinion`
---
-ALTER TABLE `recept_opinion`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -112,22 +62,7 @@ ALTER TABLE `recept_opinion`
 -- AUTO_INCREMENT for table `pantry`
 --
 ALTER TABLE `pantry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `recept`
---
-ALTER TABLE `recept`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `recept_ingredients`
---
-ALTER TABLE `recept_ingredients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `recept_opinion`
---
-ALTER TABLE `recept_opinion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -23,17 +23,10 @@
 				<a href="delete.php">Ta bort produkter</a><br>
 			</article>
 		</section>
-		<section> 
+		<section>
 		
-			<h2>Ditt skafferi</h2>
 			<?php 
-				require "../index.php"; 
-				/*$pantry = new Model("", "pantry", $pdo); 
-				$theThings = $pantry->getEverything(); */
-				
-				foreach( $theThings as $row ) {
-					echo "<p>Det finns " . $row['quantity'] . " " . $row['name'] . ".</p>";
-				}
+				require "../index.php";
 			?>
 			
 		</section>
@@ -42,4 +35,4 @@
 
 	<script src="resources/script.js"></script>
 </body>
-</html> 
+</html>

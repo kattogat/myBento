@@ -20,30 +20,32 @@ class Model {
 
 	public function getById() {
 		$sql = "SELECT * FROM $this->table WHERE id = $this->id";
-		$statement = $pdo->query($sql);
+		$statement = $this->pdo->query($sql);
 		return $statement;
 	}
-	
+	/*
 	public function getEverything() {
-		
-		//require "../app/config.php";
 		
 		$sql = "SELECT * FROM $this->table";
 		$statement = $this->pdo->query($sql);
 		
 		foreach( $statement as $row ) {
-			/*if ($row['kg'] != NULL) {
-				$kg = $row['kg']
-			} else {
-				$kg = "";
-			}
-			if ($row['liter'] != NULL) {
-				$liter = $row['liter']
-			} else {
-				$liter = "";
-			} */
-			echo "<p>Det finns " . $row['quantity'] . " " . $row['name'] . ".</p>";
+			//$data = "Det finns " . $row['quantity'] . " " . $row['name'] . ".";
+			
+			$name = $row['name'];
+			$qun = $row['quantity'];
+			$liter = $row['liter'];
+			$kg = $row['kg'];
+			
+			$data[] = array(
+				'name' => $name,
+				'quantity' => $qun,
+				'liter' => $liter,
+				'kg' => $kg,
+			);
+			
+			return $data;
 		}
-	}
+	} */
 	
 }

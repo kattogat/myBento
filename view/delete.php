@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Maria Berntsson">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="resources/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>MyBento</title>
 </head>

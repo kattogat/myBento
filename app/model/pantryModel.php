@@ -1,5 +1,7 @@
 <?php
 
+//require "model.php";
+
 class PantryModel extends Model {
 	private $table = "pantry";
 	private $name;
@@ -41,6 +43,29 @@ class PantryModel extends Model {
 		$delete = $this->pdou->prepare($sql);
 		$delete->execute (array(':deluo' => $this->name));
 		
+	}
+	
+	public function getEverything() {
+		
+		$sql = "SELECT * FROM $this->table";
+		$statement = $this->pdou->query($sql);
+		
+		foreach( $statement as $row ) {
+			
+			$name = $row['name'];
+			$qun = $row['quantity'];
+			$liter = $row['liter'];
+			$kg = $row['kg'];
+			
+			$data[] = array(
+				'name' => $name,
+				'quantity' => $qun,
+				'liter' => $liter,
+				'kg' => $kg,
+			);
+			
+			return $data;
+		}
 	}
 	
 	
