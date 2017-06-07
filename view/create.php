@@ -16,15 +16,15 @@
 		<section>
 			<article>
 				<a href="index.php">Se produkter</a><br>
-				<a href="update.php">Updatera produkter</a><br>
-				<a href="delete.php">Ta bort produkter</a><br>
+				<a href="index.php?action=update">Updatera produkter</a><br>
+				<a href="index.php?action=delete">Ta bort produkter</a><br>
 			</article>
 		</section>
 		<section>
 		
 			<h2>Lägg till en produkt i ditt skafferi.</h2>
 			
-			<form method="get" action="../index.php">
+			<form method="post" action="?action=pantry-add">
 				<label>Namn</label>
 				<input type="text" name="productName">
 				<br>

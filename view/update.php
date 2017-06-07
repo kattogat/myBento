@@ -15,9 +15,9 @@
 	<main>
 		<section>
 			<article>
-				<a href="index.php">Se produkter</a><br>
-				<a href="create.php">Lägg till produkter</a><br>
-				<a href="delete.php">Ta bort produkter</a><br>
+				<a href="index.php">Se skafferiet</a><br>
+				<a href="index.php?action=add">Lägg till produkter</a><br>
+				<a href="index.php?action=delete">Ta bort produkter</a><br>
 			</article>
 		</section>
 	
@@ -25,17 +25,16 @@
 		
 			<h2>Updatera en produkt i skafferi.</h2>
 			
-			<form method="get" action="../index.php">
-				<label>Namn (namnet på det som ska updateras, obsevera varsaler)</label>
-				<input type="text" name="productName">
+			<form method="post" action="?action=pantry-update&id=<?= $_GET['id'] ?>">
+				<label>Namn: <?php echo $_GET['name']; ?></label>
 				<br>
-				<label>Antal</label>
+				<label>Nytt antal</label>
 				<input type="text" name="productQun">
 				<br>
-				<label>Liter</label>
+				<label>Nytt antal liter</label>
 				<input type="text" name="productLiter">
 				<br>
-				<label>Kg</label>
+				<label>Nytt antal kg</label>
 				<input type="text" name="productKg">
 				<br>
 				<input type="submit" value="Uppdatera" name="pantryUpdate">

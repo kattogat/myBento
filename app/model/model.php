@@ -2,27 +2,27 @@
 
 class Model {
 	
-	protected $id;
 	protected $pdo;
-	private $db;
 	private $table;
 	
-	public function __construct($id = "", $table, $pdo) {
-		$this->id = $id;
+	public function __construct($table, $pdo) {
 		$this->table = $table;
 		$this->pdo = $pdo;
 	}
 	
-	public function getId() {
-		return $this->id;
-		
+
+	public function getById($id) {
+		$sql = "SELECT * FROM $this->table WHERE id = $id";
+		$statement = $this->pdo->execute($sql);
+		return $statement->fetch();
 	}
 
-	public function getById() {
-		$sql = "SELECT * FROM $this->table WHERE id = $this->id";
-		$statement = $this->pdo->query($sql);
-		return $statement;
+	public function deleteById($id) {
+		$sql = "DELETE FROM $this->table WHERE (id=:deluo)";
+		$delete = $this->pdou->prepare($sql);
+		$delete->execute(array(':deluo' => $id));
 	}
+
 	/*
 	public function getEverything() {
 		

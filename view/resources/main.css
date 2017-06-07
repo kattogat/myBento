@@ -1,0 +1,10 @@
+* {
+    color: red;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    color: red;
+}

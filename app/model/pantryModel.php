@@ -1,71 +1,54 @@
 <?php
 
-//require "model.php";
-
 class PantryModel extends Model {
-	private $table = "pantry";
+	private static $table = "pantry";
+	private $id;
 	private $name;
 	private $qun;
 	private $liter;
 	private $kg;
 	private $pdou;
+	private $db;
 
-	public function __construct($name, $pdou, $qun = "", $liter = "", $kg = "") {
-		$this->name = $name;
-		$this->qun = $qun;
-		$this->liter = $liter;
-		$this->kg = $kg;
-		$this->pdou = $pdou;
+	public function __construct(Database $db, $data = []) {
+		// $data = ['kg' => 5];
+		foreach ($data as $key => $value) {
+			if (property_exists($this, $key)) {
+				$this->{$key} = $value;
+			}
+		}
+		$this->db = $db;
 	}
+
+	public static function load($db, $id) {
+		$pantry = $db->getById(static::$table, $id);
+		return new PantryModel($db, $pantry);
+	} 
 	
 	public function addProduct() {	
-
-		//require __DIR__ . '/config.php';
-		
-		$sql = "INSERT INTO $this->table (name, quantity, liter, kg)
-            VALUES(:nameuo, :quntuo, :literuo, :kguo)";
-		$pantry_intoDb = $this->pdou->prepare($sql);
-		$pantry_intoDb->execute (array(':nameuo' => $this->name, ':quntuo' => $this->qun, ':literuo' => $this->liter, ':kguo' => $this->kg)); 
-		
+		$this->id = $this->db->create(static::$table, array('name' => $this->name, 'quantity' => $this->qun, 'liter' => $this->liter, 'kg' => $this->kg));		
 	}
 	
 	public function updateProduct() {
 		
-		$sql2 = "UPDATE $this->table SET name = :nameolduo, quantity = :qunolduo, liter = :literolduo, kg = :kgolduo WHERE name = :newuo";
-		$uppdate = $this->pdou->prepare($sql2);
-		$uppdate->execute (array(':nameolduo' => $this->name, ':qunolduo' => $this->qun, ':literolduo' => $this->liter, ':kgolduo' => $this->kg, ':newuo' => $this->name)); 
+		$sql = "UPDATE pantry SET  quantity = :qunolduo, liter = :literolduo, kg = :kgolduo WHERE id = :iduo";
+		$uppdate = $this->pdou->prepare($sql);
+		$uppdate->execute (array( ':qunolduo' => $this->qun, ':literolduo' => $this->liter, ':kgolduo' => $this->kg, ':iduo' => $this->id)); 
 		
 	}
-	
+
 	public function deleteProduct() {
-		
-		$sql = "DELETE FROM $this->table WHERE (name=:deluo)";
+		$sql = "DELETE FROM pantry WHERE (id=:deluo)";
 		$delete = $this->pdou->prepare($sql);
-		$delete->execute (array(':deluo' => $this->name));
-		
+		$delete->execute (array(':deluo' => $this->id));
 	}
 	
 	public function getEverything() {
+		$table = static::$table;
+		$statement = $this->db->getAll($table);
 		
-		$sql = "SELECT * FROM $this->table";
-		$statement = $this->pdou->query($sql);
+		return $statement;
 		
-		foreach( $statement as $row ) {
-			
-			$name = $row['name'];
-			$qun = $row['quantity'];
-			$liter = $row['liter'];
-			$kg = $row['kg'];
-			
-			$data[] = array(
-				'name' => $name,
-				'quantity' => $qun,
-				'liter' => $liter,
-				'kg' => $kg,
-			);
-			
-			return $data;
-		}
 	}
 	
 	

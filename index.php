@@ -1,44 +1,58 @@
 <?php
 
 require "app/config.php";
-require "app/model/model.php";
-require "app/model/pantryModel.php";
+require "app/model/Model.php";
+require "app/model/Database.php";
+require "app/model/PantryModel.php"; 
 
 $action = isset( $_GET['action'] ) ? $_GET['action'] : 'show';
-switch ($action) {
-	case 'pantryAdd':
-		require 'view/create.php';
-		break;
-	case 'pantryUpdate':
-		require 'view/update.php';
-		break;
-	case 'pantryDelete':
-		require 'view/delete.php';
-		break;
-	/*default:
-		require 'view/start.php';
-		break; */
-}
+$ds = DIRECTORY_SEPARATOR;
+$viewPath = __DIR__ . "{$ds}view{$ds}";
 
 $pdo = new PDO($dsn, $user, $password, $options);
+$db = new Database($pdo);
 
-$for_index = new PantryModel("", $pdo); 
-$theThings = $for_index->getEverything();
+$for_index = new PantryModel($db, []); 
 
-if (isset($_GET['pantryAdd'])) {
-	$pantry = new PantryModel($_GET['productName'], $pdo, $_GET['productQun'], $_GET['productLiter'], $_GET['productKg']);
-	$pantry->addProduct(); 
-	header("Location: view/index.php");
-}
+switch ($action) {
+	case 'add':
+		require $viewPath . 'create.php';
+		break;
+	case 'pantry-add':
+		$postData = [
+			'name' => $_POST['productName'],
+			'qun' => $_POST['productQun'],
+			'liter' => $_POST['productLiter'],
+			'kg' => $_POST['productKg']
+		];
 
-if (isset($_GET['pantryUpdate'])) {
-	$pantry = new PantryModel($_GET['productName'], $pdo, $_GET['productQun'], $_GET['productLiter'], $_GET['productKg']);
-	$pantry->updateProduct(); 
-	header("Location: view/index.php");
-}
-
-if (isset($_GET['pantryDelete'])) {
-	$pantryDel = new PantryModel($_GET['productName'], $pdo);
-	$pantryDel->deleteProduct(); 
-	header("Location: view/index.php");
+		$pantry = new PantryModel($db, $postData);
+		$pantry->addProduct(); 
+		header("Location: index.php");
+	break;	
+	case 'update':
+		require $viewPath . 'update.php';
+		break;
+	case 'pantry-update':
+		$theArray = [
+			'id' => $_GET['id'],
+			'qun' => $_POST['productQun'],
+			'liter' => $_POST['productLiter'],
+			'kg' => $_POST['productKg'],
+			'pdou' => $pdo
+		];
+		$pantryUpdate = new PantryModel($db, $theArray);
+		$pantryUpdate->updateProduct();
+		header("Location: index.php");
+		break;
+	case 'delete':
+		$theid = ['id' => $_GET['id'], 'pdou' => $pdo];
+		$pantryDel = new PantryModel($db, $theid);
+		$pantryDel->deleteProduct($db);
+		header("Location: index.php");
+		break;
+	default:
+		$theThings = $for_index->getEverything();
+		require $viewPath . 'index.php';
+		break;
 } 

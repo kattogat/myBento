@@ -16,8 +16,8 @@
 		<section>
 			<article>
 				<a href="index.php">Se produkter</a><br>
-				<a href="create.php">Lägg till produkter</a><br>
-				<a href="update.php">Uppdatera en produkt</a><br>
+				<a href="index.php?action=add">Lägg till produkter</a><br>
+				<a href="index.php?action=update">Updatera produkter</a><br>
 			</article>
 		</section>
 	
@@ -25,7 +25,7 @@
 		
 			<h2>Ta bort en produkt ur skafferi.</h2>
 			
-			<form method="get" action="../index.php">
+			<form method="post" action="?action=pantry-delete">
 				<label>Namn</label>
 				<input type="text" name="productName">
 				<br>
