@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Maria Berntsson">
-	<link rel="stylesheet" href="resources/main.css">
+	<link rel="stylesheet" href="view/resources/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MyBento</title>
+	<title>MyBento - Uppdatera</title>
 </head>
 
 <body>
@@ -15,29 +15,30 @@
 	<main>
 		<section>
 			<article>
-				<a href="index.php">Se skafferiet</a><br>
-				<a href="index.php?action=add">Lägg till produkter</a><br>
-				<a href="index.php?action=delete">Ta bort produkter</a><br>
+				<nav>
+					<a href="index.php">Se skafferiet</a><br>
+					<a href="index.php?action=add">Lägg till produkter</a><br>
+				</nav>
 			</article>
-		</section>
-	
-		<section>
 		
-			<h2>Updatera en produkt i skafferi.</h2>
+			<h2>Uppdatera en produkt i skafferi.</h2>
 			
 			<form method="post" action="?action=pantry-update&id=<?= $_GET['id'] ?>">
-				<label>Namn: <?php echo $_GET['name']; ?></label>
+				<label id="thing">Uppdatera: <?php echo $_GET['name']; ?></label>
 				<br>
 				<label>Nytt antal</label>
+				<br>
 				<input type="text" name="productQun">
 				<br>
 				<label>Nytt antal liter</label>
+				<br>
 				<input type="text" name="productLiter">
 				<br>
 				<label>Nytt antal kg</label>
+				<br>
 				<input type="text" name="productKg">
 				<br>
-				<input type="submit" value="Uppdatera" name="pantryUpdate">
+				<input class="butt" type="submit" value="Uppdatera" name="pantryUpdate">
 			</form>
 		</section>
 	

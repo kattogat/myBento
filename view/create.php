@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Maria Berntsson">
-	<link rel="stylesheet" href="resources/main.css">
+	<link rel="stylesheet" href="view/resources/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MyBento</title>
+	<title>MyBento - Lägg till</title>
 </head>
 
 <body>
@@ -15,29 +15,31 @@
 	<main>
 		<section>
 			<article>
-				<a href="index.php">Se produkter</a><br>
-				<a href="index.php?action=update">Updatera produkter</a><br>
-				<a href="index.php?action=delete">Ta bort produkter</a><br>
+				<nav>
+					<a href="index.php">Se produkter</a><br>
+				</nav>
 			</article>
-		</section>
-		<section>
-		
+	
 			<h2>Lägg till en produkt i ditt skafferi.</h2>
 			
 			<form method="post" action="?action=pantry-add">
 				<label>Namn</label>
+				<br>
 				<input type="text" name="productName">
 				<br>
 				<label>Antal</label>
+				<br>
 				<input type="text" name="productQun">
 				<br>
 				<label>Liter</label>
+				<br>
 				<input type="text" name="productLiter">
 				<br>
 				<label>Kg</label>
+				<br>
 				<input type="text" name="productKg">
 				<br>
-				<input type="submit" value="Lägg till" name="pantryAdd">
+				<input class="butt" type="submit" value="Lägg till" name="pantryAdd">
 			</form>
 		</section>
 	

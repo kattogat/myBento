@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Maria Berntsson">
-	<link rel="stylesheet" type="text/css" href="resources/main.css">
+	<link rel="stylesheet" type="text/css" href="view/resources/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>MyBento</title>
 </head>
@@ -16,13 +16,11 @@
 		<section>
 			<article>
 				<h2>MyBento</h2>
-				<p>Välkommen till MyBento! Här kan du visullera ett skafferi.</p>
-				<a href="index.php?action=add">Lägg till produkter</a><br>
-				<a href="index.php?action=update">Updatera produkter</a><br>
-				<a href="index.php?action=delete">Ta bort produkter</a><br>
-			</article>
-		</section>
-		<section> 
+				<p id="welcome">Välkommen till MyBento! Här kan du visullera ett skafferi.</p>
+				<nav>
+					<a href="index.php?action=add">Lägg till produkter</a><br>
+				</nav>
+			</article> 
 		
 			<h2>Ditt skafferi</h2>
 			<table>
@@ -30,7 +28,7 @@
 					<tr>
 						<th>Produkt</th>
 						<th>Antal</th>
-						<th>Gör saker</th>
+						<th>Uppdatera / Ta bort</th>
 					</tr>
 			<?php 
 				
@@ -39,7 +37,7 @@
 					<tr>
 						<td><?= $row['name'] ?></td>
 						<td><?= $row['quantity'] ?></td>
-						<td><a href="?action=update&id=<?= $row['id'] ?>&name=<?= $row['name'] ?>">Uppdatera</a> <a href="?action=delete&id=<?= $row['id'] ?>">Ta bort</a></td>
+						<td><a href="?action=update&id=<?= $row['id'] ?>&name=<?= $row['name'] ?>">Uppdatera |</a> <a href="?action=delete&id=<?= $row['id'] ?>">Ta bort</a></td>
 					</tr>
 			<?php 
 				}
