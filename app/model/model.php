@@ -22,30 +22,5 @@ class Model {
 		$delete = $this->pdou->prepare($sql);
 		$delete->execute(array(':deluo' => $id));
 	}
-
-	/*
-	public function getEverything() {
-		
-		$sql = "SELECT * FROM $this->table";
-		$statement = $this->pdo->query($sql);
-		
-		foreach( $statement as $row ) {
-			//$data = "Det finns " . $row['quantity'] . " " . $row['name'] . ".";
-			
-			$name = $row['name'];
-			$qun = $row['quantity'];
-			$liter = $row['liter'];
-			$kg = $row['kg'];
-			
-			$data[] = array(
-				'name' => $name,
-				'quantity' => $qun,
-				'liter' => $liter,
-				'kg' => $kg,
-			);
-			
-			return $data;
-		}
-	} */
 	
 }
